@@ -5,6 +5,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <WasmBuildNative>true</WasmBuildNative>
+   <!-- <ServiceWorkerAssetsManifest>wwwroot/service-worker-assets.js</ServiceWorkerAssetsManifest> -->
   </PropertyGroup>
 
   <ItemGroup>

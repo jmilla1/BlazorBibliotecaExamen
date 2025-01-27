@@ -37,12 +37,28 @@
       "PackagePath": "staticwebassets/icon-192.png"
     },
     {
+      "Id": "/Users/joaquinmilla/Documents/Proyectos/BlazorBibliotecaExamen/BlazorBiblioteca/wwwroot/icon-512.png",
+      "PackagePath": "staticwebassets/icon-512.png"
+    },
+    {
       "Id": "/Users/joaquinmilla/Documents/Proyectos/BlazorBibliotecaExamen/BlazorBiblioteca/wwwroot/index.html",
       "PackagePath": "staticwebassets/index.html"
     },
     {
+      "Id": "/Users/joaquinmilla/Documents/Proyectos/BlazorBibliotecaExamen/BlazorBiblioteca/wwwroot/manifest.json",
+      "PackagePath": "staticwebassets/manifest.json"
+    },
+    {
       "Id": "/Users/joaquinmilla/Documents/Proyectos/BlazorBibliotecaExamen/BlazorBiblioteca/wwwroot/sample-data/weather.json",
       "PackagePath": "staticwebassets/sample-data/weather.json"
+    },
+    {
+      "Id": "/Users/joaquinmilla/Documents/Proyectos/BlazorBibliotecaExamen/BlazorBiblioteca/wwwroot/service-worker-assets.js",
+      "PackagePath": "staticwebassets/service-worker-assets.js"
+    },
+    {
+      "Id": "/Users/joaquinmilla/Documents/Proyectos/BlazorBibliotecaExamen/BlazorBiblioteca/wwwroot/service-worker.js",
+      "PackagePath": "staticwebassets/service-worker.js"
     },
     {
       "Id": "obj/Debug/net8.0/staticwebassets/msbuild.BlazorBiblioteca.Microsoft.AspNetCore.StaticWebAssets.props",

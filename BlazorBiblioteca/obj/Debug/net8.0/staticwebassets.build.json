@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "+u86pZXEtV8dSiGLvuXUx2o2Zd3yYxA9Eqkh0iegvT0=",
+  "Hash": "hsUq9xoFpMBdkUZ0+TNNkI0OH3idiYLAKx2ZWFX2aqA=",
   "Source": "BlazorBiblioteca",
   "BasePath": "/",
   "Mode": "Root",
@@ -11873,6 +11873,25 @@
       "OriginalItemSpec": "wwwroot/icon-192.png"
     },
     {
+      "Identity": "/Users/joaquinmilla/Documents/Proyectos/BlazorBibliotecaExamen/BlazorBiblioteca/wwwroot/icon-512.png",
+      "SourceId": "BlazorBiblioteca",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/joaquinmilla/Documents/Proyectos/BlazorBibliotecaExamen/BlazorBiblioteca/wwwroot/",
+      "BasePath": "/",
+      "RelativePath": "icon-512.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/icon-512.png"
+    },
+    {
       "Identity": "/Users/joaquinmilla/Documents/Proyectos/BlazorBibliotecaExamen/BlazorBiblioteca/wwwroot/index.html",
       "SourceId": "BlazorBiblioteca",
       "SourceType": "Discovered",
@@ -11892,6 +11911,25 @@
       "OriginalItemSpec": "wwwroot/index.html"
     },
     {
+      "Identity": "/Users/joaquinmilla/Documents/Proyectos/BlazorBibliotecaExamen/BlazorBiblioteca/wwwroot/manifest.json",
+      "SourceId": "BlazorBiblioteca",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/joaquinmilla/Documents/Proyectos/BlazorBibliotecaExamen/BlazorBiblioteca/wwwroot/",
+      "BasePath": "/",
+      "RelativePath": "manifest.json",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/manifest.json"
+    },
+    {
       "Identity": "/Users/joaquinmilla/Documents/Proyectos/BlazorBibliotecaExamen/BlazorBiblioteca/wwwroot/sample-data/weather.json",
       "SourceId": "BlazorBiblioteca",
       "SourceType": "Discovered",
@@ -11909,6 +11947,44 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/sample-data/weather.json"
+    },
+    {
+      "Identity": "/Users/joaquinmilla/Documents/Proyectos/BlazorBibliotecaExamen/BlazorBiblioteca/wwwroot/service-worker-assets.js",
+      "SourceId": "BlazorBiblioteca",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/joaquinmilla/Documents/Proyectos/BlazorBibliotecaExamen/BlazorBiblioteca/wwwroot/",
+      "BasePath": "/",
+      "RelativePath": "service-worker-assets.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/service-worker-assets.js"
+    },
+    {
+      "Identity": "/Users/joaquinmilla/Documents/Proyectos/BlazorBibliotecaExamen/BlazorBiblioteca/wwwroot/service-worker.js",
+      "SourceId": "BlazorBiblioteca",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/joaquinmilla/Documents/Proyectos/BlazorBibliotecaExamen/BlazorBiblioteca/wwwroot/",
+      "BasePath": "/",
+      "RelativePath": "service-worker.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/service-worker.js"
     }
   ]
 }
