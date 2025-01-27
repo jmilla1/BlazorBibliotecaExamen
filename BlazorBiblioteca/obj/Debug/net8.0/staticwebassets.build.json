@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "LmU7IDkDaVavuwNbADcEID34SR745VdBRZqf/q8Dvqk=",
+  "Hash": "c7kiwkARLIirOCf+Gyzk2jEsI/WH9pc/estt/B9Tu9Q=",
   "Source": "BlazorBiblioteca",
   "BasePath": "/",
   "Mode": "Root",
@@ -8090,6 +8090,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/css/bootstrap/bootstrap.min.css.map"
+    },
+    {
+      "Identity": "/Users/joaquinmilla/Documents/Proyectos/BlazorBibliotecaExamen/BlazorBiblioteca/wwwroot/css/custom.css",
+      "SourceId": "BlazorBiblioteca",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/joaquinmilla/Documents/Proyectos/BlazorBibliotecaExamen/BlazorBiblioteca/wwwroot/",
+      "BasePath": "/",
+      "RelativePath": "css/custom.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/css/custom.css"
     },
     {
       "Identity": "/Users/joaquinmilla/Documents/Proyectos/BlazorBibliotecaExamen/BlazorBiblioteca/wwwroot/favicon.png",

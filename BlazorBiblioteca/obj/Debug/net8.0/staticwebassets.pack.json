@@ -25,6 +25,10 @@
       "PackagePath": "staticwebassets/css/bootstrap/bootstrap.min.css.map"
     },
     {
+      "Id": "/Users/joaquinmilla/Documents/Proyectos/BlazorBibliotecaExamen/BlazorBiblioteca/wwwroot/css/custom.css",
+      "PackagePath": "staticwebassets/css/custom.css"
+    },
+    {
       "Id": "/Users/joaquinmilla/Documents/Proyectos/BlazorBibliotecaExamen/BlazorBiblioteca/wwwroot/favicon.png",
       "PackagePath": "staticwebassets/favicon.png"
     },

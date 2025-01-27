@@ -51,7 +51,7 @@
     private async Task OnSubmit()
     {
         IsLoading = true;
-        await Task.Delay(3000); // Simula 3 segundos de carga
+        await Task.Delay(3000); 
         IsLoading = false;
         AlertMessage = "Libro guardado correctamente.";
         AlertClass = "alert-success";
@@ -60,8 +60,7 @@
     private async Task OnUpdate()
     {
         IsLoading = true;
-        await Task.Delay(3000); // Simula 3 segundos de carga
-        IsLoading = false;
+        await Task.Delay(3000); 
         AlertMessage = "Libro actualizado correctamente.";
         AlertClass = "alert-warning";
     }
@@ -69,7 +68,7 @@
     private async Task OnDelete()
     {
         IsLoading = true;
-        await Task.Delay(2000); // Simula 2 segundos de carga
+        await Task.Delay(2000); 
         IsLoading = false;
         AlertMessage = "Libro eliminado correctamente.";
         AlertClass = "alert-danger";

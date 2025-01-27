@@ -1,0 +1,19 @@
+body {
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 50px auto;
+    color: #000000;
+}
+
+.btn {
+    font-weight: bold;
+}
