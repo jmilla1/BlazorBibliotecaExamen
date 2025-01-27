@@ -1,4 +1,5 @@
 ﻿@page "/"
+@using BlazorBiblioteca.Services
 
 <h3>Gestión de Libros</h3>
 
@@ -16,61 +17,209 @@
         </div>
     }
 
-    <form @onsubmit="OnSubmit">
-        <div class="mb-3">
-            <label for="bookTitle" class="form-label">Título del Libro</label>
-            <input type="text" class="form-control" id="bookTitle" @bind="BookTitle" placeholder="Ingresa el título del libro">
-        </div>
-        <div class="mb-3">
-            <label for="author" class="form-label">Autor</label>
-            <input type="text" class="form-control" id="author" @bind="Author" placeholder="Ingresa el autor">
-        </div>
-        <div class="mb-3">
-            <label for="pages" class="form-label">Número de Páginas</label>
-            <input type="number" class="form-control" id="pages" @bind="Pages" placeholder="Ingresa el número de páginas">
-        </div>
-        <div class="mb-3">
-            <label for="publishDate" class="form-label">Fecha de Publicación</label>
-            <input type="date" class="form-control" id="publishDate" @bind="PublishDate">
-        </div>
-        <button type="submit" class="btn btn-success">Guardar Libro</button>
-        <button type="button" class="btn btn-warning mx-2" @onclick="OnUpdate">Actualizar Libro</button>
-        <button type="button" class="btn btn-danger" @onclick="OnDelete">Eliminar Libro</button>
-    </form>
+    <button class="btn btn-primary mb-3" @onclick="OpenAddBookModal">Agregar Libro</button>
+
+    <!-- Lista de Libros -->
+    <h4>Lista de Libros</h4>
+    <ul class="list-group">
+        @if (Books != null && Books.Any())
+        {
+            @foreach (var book in Books)
+            {
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <span>
+                        <strong>@book.Title</strong> - @book.Author (@book.Pages páginas, Publicado el @book.PublishDate.ToShortDateString())
+                    </span>
+                    <div>
+                        <button class="btn btn-warning btn-sm me-2" @onclick="() => OpenUpdateBookModal(book)">Actualizar</button>
+                        <button class="btn btn-danger btn-sm" @onclick="() => OpenDeleteModal(book)">Eliminar</button>
+                    </div>
+                </li>
+            }
+        }
+        else
+        {
+            <li class="list-group-item">No hay libros disponibles.</li>
+        }
+    </ul>
 </div>
 
+<!-- Modal para Agregar/Actualizar Libro -->
+@if (ShowBookModal)
+{
+    <div class="modal d-block" style="background-color: rgba(0, 0, 0, 0.5);">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">@ModalTitle</h5>
+                    <button type="button" class="btn-close" @onclick="CloseBookModal"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="bookTitle" class="form-label">Título del Libro</label>
+                            <input type="text" class="form-control" id="bookTitle" placeholder="Ingresa el título del libro" @bind="Book.Title" />
+                        </div>
+                        <div class="mb-3">
+                            <label for="author" class="form-label">Autor</label>
+                            <input type="text" class="form-control" id="author" placeholder="Ingresa el autor" @bind="Book.Author" />
+                        </div>
+                        <div class="mb-3">
+                            <label for="pages" class="form-label">Número de Páginas</label>
+                            <input type="number" class="form-control" id="pages" placeholder="Ingresa el número de páginas" @bind="Book.Pages" />
+                        </div>
+                        <div class="mb-3">
+                            <label for="publishDate" class="form-label">Fecha de Publicación</label>
+                            <input type="date" class="form-control" id="publishDate" @bind="Book.PublishDate" />
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" @onclick="CloseBookModal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" @onclick="SaveOrUpdateBook">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<!-- Modal para Confirmar Eliminación -->
+@if (ShowDeleteModal)
+{
+    <div class="modal d-block" style="background-color: rgba(0, 0, 0, 0.5);">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Confirmar Eliminación</h5>
+                    <button type="button" class="btn-close" @onclick="CloseDeleteModal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>¿Estás seguro de que deseas eliminar el libro <strong>@Book.Title</strong>?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" @onclick="CloseDeleteModal">Cancelar</button>
+                    <button type="button" class="btn btn-danger" @onclick="DeleteBook">Eliminar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
 @code {
-    private string? BookTitle;
-    private string? Author;
-    private int Pages;
-    private DateTime? PublishDate;
+    private List<Book> Books = new();
+    private Book Book = new();
     private string? AlertMessage;
     private string? AlertClass;
     private bool IsLoading;
+    private bool ShowBookModal;
+    private bool ShowDeleteModal;
+    private string ModalTitle = "Agregar Libro";
 
-    private async Task OnSubmit()
+    [Inject]
+    private BookService BookService { get; set; } = default!;
+
+    protected override async Task OnInitializedAsync()
     {
-        IsLoading = true;
-        await Task.Delay(3000); 
-        IsLoading = false;
-        AlertMessage = "Libro guardado correctamente.";
-        AlertClass = "alert-success";
+        await LoadBooks();
     }
 
-    private async Task OnUpdate()
+    private async Task LoadBooks()
     {
         IsLoading = true;
-        await Task.Delay(3000); 
-        AlertMessage = "Libro actualizado correctamente.";
-        AlertClass = "alert-warning";
+        try
+        {
+            Books = await BookService.GetBooksAsync();
+        }
+        catch (Exception ex)
+        {
+            AlertMessage = $"Error al cargar los libros: {ex.Message}";
+            AlertClass = "alert-danger";
+        }
+        finally
+        {
+            IsLoading = false;
+        }
     }
 
-    private async Task OnDelete()
+    private void OpenAddBookModal()
     {
-        IsLoading = true;
-        await Task.Delay(2000); 
-        IsLoading = false;
-        AlertMessage = "Libro eliminado correctamente.";
-        AlertClass = "alert-danger";
+        Book = new Book();
+        ModalTitle = "Agregar Libro";
+        ShowBookModal = true;
+    }
+
+    private void OpenUpdateBookModal(Book book)
+    {
+        Book = new Book
+        {
+            Id = book.Id,
+            Title = book.Title,
+            Author = book.Author,
+            Pages = book.Pages,
+            PublishDate = book.PublishDate
+        };
+        ModalTitle = "Actualizar Libro";
+        ShowBookModal = true;
+    }
+
+    private async Task SaveOrUpdateBook()
+    {
+        try
+        {
+            if (Book.Id == 0)
+            {
+                await BookService.CreateBookAsync(Book);
+                AlertMessage = "Libro agregado correctamente.";
+            }
+            else
+            {
+                await BookService.UpdateBookAsync(Book);
+                AlertMessage = "Libro actualizado correctamente.";
+            }
+            AlertClass = "alert-success";
+            await LoadBooks();
+            CloseBookModal();
+        }
+        catch (Exception ex)
+        {
+            AlertMessage = $"Error: {ex.Message}";
+            AlertClass = "alert-danger";
+        }
+    }
+
+    private void OpenDeleteModal(Book book)
+    {
+        Book = book;
+        ShowDeleteModal = true;
+    }
+
+    private async Task DeleteBook()
+    {
+        try
+        {
+            await BookService.DeleteBookAsync(Book.Id);
+            AlertMessage = "Libro eliminado correctamente.";
+            AlertClass = "alert-success";
+            await LoadBooks();
+        }
+        catch (Exception ex)
+        {
+            AlertMessage = $"Error al eliminar el libro: {ex.Message}";
+            AlertClass = "alert-danger";
+        }
+        finally
+        {
+            CloseDeleteModal();
+        }
+    }
+
+    private void CloseBookModal()
+    {
+        ShowBookModal = false;
+    }
+
+    private void CloseDeleteModal()
+    {
+        ShowDeleteModal = false;
     }
 }
