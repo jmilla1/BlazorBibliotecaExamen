@@ -1030,3 +1030,8 @@
 /Users/joaquinmilla/Documents/Proyectos/BlazorBibliotecaExamen/BlazorBiblioteca/obj/Debug/net8.0/refint/BlazorBiblioteca.dll
 /Users/joaquinmilla/Documents/Proyectos/BlazorBibliotecaExamen/BlazorBiblioteca/obj/Debug/net8.0/BlazorBiblioteca.pdb
 /Users/joaquinmilla/Documents/Proyectos/BlazorBibliotecaExamen/BlazorBiblioteca/obj/Debug/net8.0/ref/BlazorBiblioteca.dll
+/Users/joaquinmilla/Documents/Proyectos/BlazorBibliotecaExamen/BlazorBiblioteca/bin/Debug/net8.0/wwwroot/_framework/BlazorBootstrap.wasm
+/Users/joaquinmilla/Documents/Proyectos/BlazorBibliotecaExamen/BlazorBiblioteca/bin/Debug/net8.0/wwwroot/_framework/BlazorBootstrap.wasm.gz
+/Users/joaquinmilla/Documents/Proyectos/BlazorBibliotecaExamen/BlazorBiblioteca/bin/Debug/net8.0/BlazorBootstrap.dll
+/Users/joaquinmilla/Documents/Proyectos/BlazorBibliotecaExamen/BlazorBiblioteca/obj/Debug/net8.0/webcil/BlazorBootstrap.wasm
+/Users/joaquinmilla/Documents/Proyectos/BlazorBibliotecaExamen/BlazorBiblioteca/obj/Debug/net8.0/compressed/tk26e4hzip.gz

@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "/sb21K/IWag=",
+  "dgSpecHash": "Hq++i5wg7G0=",
   "success": true,
   "projectFilePath": "/Users/joaquinmilla/Documents/Proyectos/BlazorBibliotecaExamen/BlazorBiblioteca/BlazorBiblioteca.csproj",
   "expectedPackageFiles": [
+    "/Users/joaquinmilla/.nuget/packages/blazor.bootstrap/3.2.0/blazor.bootstrap.3.2.0.nupkg.sha512",
     "/Users/joaquinmilla/.nuget/packages/microsoft.aspnetcore.authorization/8.0.12/microsoft.aspnetcore.authorization.8.0.12.nupkg.sha512",
     "/Users/joaquinmilla/.nuget/packages/microsoft.aspnetcore.components/8.0.12/microsoft.aspnetcore.components.8.0.12.nupkg.sha512",
     "/Users/joaquinmilla/.nuget/packages/microsoft.aspnetcore.components.analyzers/8.0.12/microsoft.aspnetcore.components.analyzers.8.0.12.nupkg.sha512",
