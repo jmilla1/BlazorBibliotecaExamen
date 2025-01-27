@@ -3,7 +3,13 @@
 <h3>Gestión de Libros</h3>
 
 <div class="container mt-4">
-    @if (!string.IsNullOrEmpty(AlertMessage))
+    @if (IsLoading)
+    {
+        <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Cargando...</span>
+        </div>
+    }
+    else if (!string.IsNullOrEmpty(AlertMessage))
     {
         <div class="alert @AlertClass" role="alert">
             @AlertMessage
@@ -40,21 +46,31 @@
     private DateTime? PublishDate;
     private string? AlertMessage;
     private string? AlertClass;
+    private bool IsLoading;
 
-    private void OnSubmit()
+    private async Task OnSubmit()
     {
+        IsLoading = true;
+        await Task.Delay(3000); // Simula 3 segundos de carga
+        IsLoading = false;
         AlertMessage = "Libro guardado correctamente.";
         AlertClass = "alert-success";
     }
 
-    private void OnUpdate()
+    private async Task OnUpdate()
     {
+        IsLoading = true;
+        await Task.Delay(3000); // Simula 3 segundos de carga
+        IsLoading = false;
         AlertMessage = "Libro actualizado correctamente.";
         AlertClass = "alert-warning";
     }
 
-    private void OnDelete()
+    private async Task OnDelete()
     {
+        IsLoading = true;
+        await Task.Delay(2000); // Simula 2 segundos de carga
+        IsLoading = false;
         AlertMessage = "Libro eliminado correctamente.";
         AlertClass = "alert-danger";
     }
