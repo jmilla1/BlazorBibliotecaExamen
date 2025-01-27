@@ -3,23 +3,59 @@
 <h3>Gestión de Libros</h3>
 
 <div class="container mt-4">
-    <form>
+    @if (!string.IsNullOrEmpty(AlertMessage))
+    {
+        <div class="alert @AlertClass" role="alert">
+            @AlertMessage
+        </div>
+    }
+
+    <form @onsubmit="OnSubmit">
         <div class="mb-3">
             <label for="bookTitle" class="form-label">Título del Libro</label>
-            <input type="text" class="form-control" id="bookTitle" placeholder="Ingresa el título del libro">
+            <input type="text" class="form-control" id="bookTitle" @bind="BookTitle" placeholder="Ingresa el título del libro">
         </div>
         <div class="mb-3">
             <label for="author" class="form-label">Autor</label>
-            <input type="text" class="form-control" id="author" placeholder="Ingresa el autor">
+            <input type="text" class="form-control" id="author" @bind="Author" placeholder="Ingresa el autor">
         </div>
         <div class="mb-3">
             <label for="pages" class="form-label">Número de Páginas</label>
-            <input type="number" class="form-control" id="pages" placeholder="Ingresa el número de páginas">
+            <input type="number" class="form-control" id="pages" @bind="Pages" placeholder="Ingresa el número de páginas">
         </div>
         <div class="mb-3">
             <label for="publishDate" class="form-label">Fecha de Publicación</label>
-            <input type="date" class="form-control" id="publishDate">
+            <input type="date" class="form-control" id="publishDate" @bind="PublishDate">
         </div>
         <button type="submit" class="btn btn-success">Guardar Libro</button>
+        <button type="button" class="btn btn-warning mx-2" @onclick="OnUpdate">Actualizar Libro</button>
+        <button type="button" class="btn btn-danger" @onclick="OnDelete">Eliminar Libro</button>
     </form>
 </div>
+
+@code {
+    private string? BookTitle;
+    private string? Author;
+    private int Pages;
+    private DateTime? PublishDate;
+    private string? AlertMessage;
+    private string? AlertClass;
+
+    private void OnSubmit()
+    {
+        AlertMessage = "Libro guardado correctamente.";
+        AlertClass = "alert-success";
+    }
+
+    private void OnUpdate()
+    {
+        AlertMessage = "Libro actualizado correctamente.";
+        AlertClass = "alert-warning";
+    }
+
+    private void OnDelete()
+    {
+        AlertMessage = "Libro eliminado correctamente.";
+        AlertClass = "alert-danger";
+    }
+}
